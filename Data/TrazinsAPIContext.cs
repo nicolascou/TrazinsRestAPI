@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using TrazinsAPI.Models;
 
 namespace TrazinsAPI.Data
 {
@@ -9,7 +10,8 @@ namespace TrazinsAPI.Data
         {
         }
 
-        // public DbSet<TrazinsAPI.Models.Registro> Registro { get; set; } = default!;
-        public DbSet<TrazinsAPI.Models.Material> Material { get; set; } = default!;
+        public DbSet<Material> Material { get; set; } = default!;
+        public DbSet<Registro> Registro { get; set; } = default!;
+        public DbSet<Registro_Materiales> Registro_Materiales { get; set; } = default!;
     }
 }
