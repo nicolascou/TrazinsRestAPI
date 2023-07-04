@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TrazinsAPI.Data;
 using TrazinsAPI.Models;
+using System.Web.Http.Cors;
 
 namespace TrazinsAPI.Controllers;
 
