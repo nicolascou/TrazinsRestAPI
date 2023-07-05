@@ -38,7 +38,7 @@ public class RegistroController : ControllerBase
             }
 
             await _context.SaveChangesAsync();
-            return Ok(registroYMateriales.Registro);
+            return Created("Registro Creado", registroYMateriales.Registro);
         }
         catch (Exception ex)
         {
