@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TrazinsAPI.Data;
 using TrazinsAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace TrazinsAPI.Controllers;
 
@@ -16,16 +17,16 @@ public class MaterialController : ControllerBase
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<Material>> Get(string tipo)
+    public async Task<ActionResult<IEnumerable<Material>>> Get(string tipo = "all")
     {
         List<Material> materials;
         if (tipo == "all")
         {
-            materials = _context.Material.ToList();
+            materials = await _context.Material.ToListAsync();
         }
         else
         {
-            materials = _context.Material.Where(m => m.Tipo == tipo).ToList();
+            materials = await _context.Material.Where(m => m.Tipo == tipo).ToListAsync();
         }
         return Ok(materials);
     }

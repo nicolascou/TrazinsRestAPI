@@ -16,7 +16,7 @@ public class RegistroController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult> Post(PostModel registroYMateriales)
+    public async Task<ActionResult> Post(RegistroYMateriales registroYMateriales)
     {
         try
         {
@@ -47,7 +47,7 @@ public class RegistroController : ControllerBase
     }
 }
 
-public class PostModel
+public class RegistroYMateriales
 {
     public Registro? Registro { get; set; }
     public Material[]? Materiales { get; set; }
