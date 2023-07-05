@@ -1,9 +1,11 @@
 using TrazinsAPI.Data;
 using Microsoft.EntityFrameworkCore;
 
+DotNetEnv.Env.Load();
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<TrazinsAPIContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.")));
+    options.UseSqlServer(Environment.GetEnvironmentVariable("DB_CONNECTION") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.")));
 
 // Add services to the container.
 
